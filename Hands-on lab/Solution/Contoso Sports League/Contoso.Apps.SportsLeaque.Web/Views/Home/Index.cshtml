@@ -1,0 +1,112 @@
+﻿@model Contoso.Apps.SportsLeague.Web.Models.HomeModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@section HeaderOverlay {
+    <div class="button-wrapper">
+        <div class="container">
+            <div class="row">
+                <a href="#" class="btn-content">Contoso Sports League</a>
+            </div>
+            <div class="row clearfix">
+                <p><br /></p>
+                <p><br /></p>
+                <p><a href="@Url.Action("Index", "Store")" class="btn red-btn">Visit our Store</a></p>
+            </div>
+        </div>
+    </div>
+}
+
+<section class="store">
+    <div class="container">
+        <div class="row">
+            <div class="wrapper clearfix">
+                <aside class="content contact-wrap">
+                    <div class="store-details-wrap clearfix">
+                        <div class="shop-related clearfix">
+                            <h2>Today's Offers</h2>
+                            <p>We found these great products just for you!</p>
+                            <p><br /></p>
+
+                            <div id="offers" data-bind="foreach: offers">
+                                <div class="figure">
+                                    <div class="item">
+                                        <div class="item-img">
+                                            <img data-bind="attr: {'src':  '/Images/Products/' + imagePath, 'alt': 'Add ' + productName + ' to cart'}" class="center-block">
+                                            <div class="item-cart">
+                                                <a data-bind="attr: {'href':  '/Cart/AddToCart?productId=' + productID}">Add to cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-header clearfix">
+                                                <span class="headline-lato" data-bind="text: productName"></span>
+                                                <span class="" data-bind="money: unitPrice"></span>
+                                            </div>
+                                            <p>
+                                                <a data-bind="attr: {'href':  '/Store/Details/' + productID}" class="btn trans-btn">Product Details</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/vendor/knockout-3.3.0.js"></script>
+
+    <script type="text/javascript">
+        var offersUri = '@(ViewBag.offersAPIUrl)';
+        var viewModel = {
+            offers: ko.observableArray()
+        };
+
+        $(document).ready(function () {
+            // Call the Offers service and populate the offers list:
+            var jqxhr = $.get(offersUri, function (data) {
+                // Success: Bind the data to our viewmodel.
+                viewModel.offers(data);
+            })
+            .fail(function (req, status, err) {
+                if (req.readyState == 0 || req.status == 0) {
+                    // Most likely a CORS issue where this domain has not been added
+                    // by the destination server.
+                    alert('An error has occurred while retrieving the latest offered products. It appears as though CORS has not been configured.');
+                }
+                else if (err != null && err != '') {
+                    alert('An error has occurred while retrieving the latest offered products: ' + err)
+                }
+            });
+
+            // TODO: Throw alert on error
+
+            ko.applyBindings(viewModel);
+        });
+
+        ko.bindingHandlers.money = {
+            update: function (element, valueAccessor, allBindingsAccessor) {
+                var value = valueAccessor(), allBindings = allBindingsAccessor();
+                var valueUnwrapped = ko.utils.unwrapObservable(value);
+
+                var m = "";
+                var out = "";
+                if (valueUnwrapped) {
+                    m = parseFloat(valueUnwrapped);
+                    if (m) {
+                        out = '$' + m.toMoney(2);
+                    }
+                }
+                $(element).text(out);
+            }
+        };
+
+    </script>
+}

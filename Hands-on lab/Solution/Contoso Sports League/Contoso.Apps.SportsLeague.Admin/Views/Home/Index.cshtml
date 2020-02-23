@@ -1,0 +1,40 @@
+﻿@model Contoso.Apps.SportsLeague.Admin.Models.HomeModel
+@{
+    ViewBag.Title = "Admin Home";
+}
+
+<div class="row">
+    <div class="col-md-12"><br /></div>
+</div>
+
+<div class="jumbotron">
+    <h2>Contoso Sports League Admin</h2>
+    <p class="lead">Below is a list of orders, sorted by reverse order date. You may click on an order to see its details and to obtain the generated PDF receipt.</p>
+    <p><a href="@Url.Action("About", "Home")" class="btn red-btn btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<h1>Completed Orders</h1>
+
+<table class="table table-striped table-hover table-condensed">
+    <thead>
+        <tr class="active">
+            <th>Order Details</th>
+            <th>Order Date</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.Orders)
+        {
+            <tr>
+                <td>@(Html.ActionLink("Details", "Details", "Home", new { Id = item.OrderId }, null))</td>
+                <td>@(item.OrderDate)</td>
+                <td>@(item.FirstName)</td>
+                <td>@(item.LastName)</td>
+                <td>@(item.Total.ToString("{0:c}"))</td>
+            </tr>
+        }
+    </tbody>
+</table>
