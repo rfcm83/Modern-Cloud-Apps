@@ -1,6 +1,5 @@
 using AutoMapper;
 using Contoso.Apps.SportsLeague.Data.Models;
-using MaximeRouiller.Azure.AppService.EasyAuth;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +28,6 @@ namespace Contoso.Apps.SportsLeague.Admin
 
             services.AddAutoMapper(typeof(AutoMapping));
 
-            services.AddAuthentication().AddEasyAuthAuthentication((o) => { });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
