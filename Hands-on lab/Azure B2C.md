@@ -1,4 +1,4 @@
-![Microsoft Cloud Workshops](../media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+![Microsoft Cloud Workshops](../Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 # Modern Cloud Apps
 
@@ -39,7 +39,7 @@ The Cloud Workshop: Modern Cloud Apps lab is a hands-on exercise that will chall
 
 ## Solution architecture
 
-![A diagram that depicts the various Azure PaaS services for the solution. Azure AD Org is used for authentication to the call center app. Azure AD B2C for authentication is used for authentication to the client app. SQL Database for the backend customer data. Azure App Services for the web and API apps. Order processing includes using Functions, Logic Apps, Queues and Storage. Azure App Insights is used for telemetry capture.](../media/Screenshots/image2.png "Solution Architecture Diagram")
+![A diagram that depicts the various Azure PaaS services for the solution. Azure AD Org is used for authentication to the call center app. Azure AD B2C for authentication is used for authentication to the client app. SQL Database for the backend customer data. Azure App Services for the web and API apps. Order processing includes using Functions, Logic Apps, Queues and Storage. Azure App Insights is used for telemetry capture.](../Media/Screenshots/image2.png "Solution Architecture Diagram")
 
 ## Requirements
 
@@ -85,37 +85,37 @@ In this exercise, you will configure an Azure AD Business to Consumer (B2C) inst
 
 1. Log in to the Azure portal by using your existing Azure subscription or by starting a free trial. In the left-hand navigation menu, select **+Create a resource**. Then, search for and select **Azure Active Directory B2C** and select **Create** on the new blade that pops up.
 
-    ![In the Everything blade, the active directory B2C text is in the Search field, and under Results, Azure Active Directory B2C displays.](../media/Screenshots/image156.png "Everything blade")
+    ![In the Everything blade, the active directory B2C text is in the Search field, and under Results, Azure Active Directory B2C displays.](../Media/Screenshots/image156.png "Everything blade")
 
 2. In the new blade, select **Create a new Azure AD B2C Tenant**. Then, enter the name as **ContosoB2C** and a unique domain name and region. Then, select **Create**. After directory creation completes, select the link in the new information tile that reads **Click here to manage your new directory**.
 
-    ![In the Azure Portal, under Create new B2C Tenant or Link to existing Tenant, Create a new Azure AD B2C Tenant is selected. On the right, the word \"here,\" which is a link, is circled in the Select here to manage your new directory message.](../media/Screenshots/2019-03-28-09-29-30.png "Azure Portal")
+    ![In the Azure Portal, under Create new B2C Tenant or Link to existing Tenant, Create a new Azure AD B2C Tenant is selected. On the right, the word \"here,\" which is a link, is circled in the Select here to manage your new directory message.](../Media/Screenshots/2019-03-28-09-29-30.png "Azure Portal")
 
-    ![In the Azure Portal, under Create new B2C Tenant or Link to existing Tenant, Create a new Azure AD B2C Tenant is selected. On the right, the word \"here,\" which is a link, is circled in the Select here to manage your new directory message.](../media/Screenshots/image157.png "Azure Portal")
+    ![In the Azure Portal, under Create new B2C Tenant or Link to existing Tenant, Create a new Azure AD B2C Tenant is selected. On the right, the word \"here,\" which is a link, is circled in the Select here to manage your new directory message.](../Media/Screenshots/image157.png "Azure Portal")
 
 3. Select the orange **No Subscription** message for instructions on how to link to an active subscription.
 
-    ![In the Azure Portal, on the left, the \"No subscription linked to this B2C tenant or the Subscription needs your attention\" message is selected.](../media/Screenshots/image158.png "Azure Portal")
+    ![In the Azure Portal, on the left, the \"No subscription linked to this B2C tenant or the Subscription needs your attention\" message is selected.](../Media/Screenshots/image158.png "Azure Portal")
 
-    ![The three steps to link the B2C tenant to an Azure subscription are circled.](../media/Screenshots/2019-08-25-17-45-26.png "Azure Portal")
+    ![The three steps to link the B2C tenant to an Azure subscription are circled.](../Media/Screenshots/2019-08-25-17-45-26.png "Azure Portal")
 
     >**Note**: Essentially, you will need to switch back to your previous Azure AD tenant, and then launch the Azure AD B2C creation wizard again.
 
 4. Select **Link an existing Azure AD B2C Tenant to my Azure subscription,** and select the Tenant you just created in the dropdown list and the existing resource group **contososports**. Then, select **Create**.
 
-    ![In the Create new B2C Tenant or Link to existing Tenant blade, on the left, Link an existing Azure AD B2C Tenant to my Azure subscription is selected. On the right, in the Azure AD B2C Resource blade, the Azure AD B2C Tenant drop-down field is contosodb2ccustsitecp.onmicrosoft.com. The Resource group is using the existing contososports.](../media/Screenshots/image159.png "Create new B2C Tenant or Link to existing Tenant")
+    ![In the Create new B2C Tenant or Link to existing Tenant blade, on the left, Link an existing Azure AD B2C Tenant to my Azure subscription is selected. On the right, in the Azure AD B2C Resource blade, the Azure AD B2C Tenant drop-down field is contosodb2ccustsitecp.onmicrosoft.com. The Resource group is using the existing contososports.](../Media/Screenshots/image159.png "Create new B2C Tenant or Link to existing Tenant")
 
 5. After creation completes, open the new Azure AD B2C tenant by selecting **Resource Groups** in the navigation menu to the left and, then, **contososports**. Then, in the new blade, select the B2C tenant you just created.
 
-    ![In the contososports resource group, the new B2C tenant is boxed in red.](../media/Screenshots/b2ctenant_in_rg.png "Azure AD B2C Settings window")
+    ![In the contososports resource group, the new B2C tenant is boxed in red.](../Media/Screenshots/b2ctenant_in_rg.png "Azure AD B2C Settings window")
 
 6. In the new blade, select the **B2C Settings** tile for the new B2C tenant. You will be taken to the new subscription for this tenant.
 
-    ![In the Azure AD B2C tenant window, on the left, All Settings is selected. In the bottom right section, the Azure AD B2C Settings tile is selected.](../media/Screenshots/image160.png "Azure AD B2C Settings window")
+    ![In the Azure AD B2C tenant window, on the left, All Settings is selected. In the bottom right section, the Azure AD B2C Settings tile is selected.](../Media/Screenshots/image160.png "Azure AD B2C Settings window")
 
 7. In the new tab that opened, under the **MANAGE** menu area of the open **Azure AD B2C** blade, select **Applications**. Then, in the new pane, select **+Add**.
 
-    ![In the Azure AD B2C Settings window, on the left, All Settings is selected. In the middle, under Settings, under Manage, Applications is selected. On the right, the Add button is selected.](../media/Screenshots/b2c-add-app-link.png "Azure AD B2C Settings window")
+    ![In the Azure AD B2C Settings window, on the left, All Settings is selected. In the middle, under Settings, under Manage, Applications is selected. On the right, the Add button is selected.](../Media/Screenshots/b2c-add-app-link.png "Azure AD B2C Settings window")
 
 ### Task 2: Add a new application
 
@@ -129,13 +129,13 @@ In this exercise, you will configure an Azure AD Business to Consumer (B2C) inst
 
    - Reply URL: `https://[your web url].azurewebsites.net` _(This should be the HTTPS URL to the Contoso E-Commerce Site.)_
 
-   ![The New application fields are set to the previously defined values.](../media/Screenshots/image161.png "New application")
+   ![The New application fields are set to the previously defined values.](../Media/Screenshots/image161.png "New application")
 
 2. Select **Create**.
 
 3. Back on the **Azure AD B2C** blade in the **Applications** screen, copy the application ID of your new application to Notepad to use later. Keep this tab open for the next task.
 
-     ![B2C application name and ID values are shown.](../media/Screenshots/2019-04-11-08-36-28.png "Azure AD B2C screen")
+     ![B2C application name and ID values are shown.](../Media/Screenshots/2019-04-11-08-36-28.png "Azure AD B2C screen")
 
 ### Task 3: Create Policies, Sign up and sign in
 
@@ -143,26 +143,26 @@ In this exercise, you will configure an Azure AD Business to Consumer (B2C) inst
 
 2. To enable sign-up on your application, you will need to create a sign-up policy. This policy describes the experiences consumers will go through during sign-up and the contents of tokens the application will receive on successful sign-ups. Select **User flows (policies)** link on the left menu and then **+New user flow** link at the top of the blade.
 
-    ![In the Azure Portal, on the left, Azure AD B2C - User Flows selected.](../media/Screenshots/2019-03-28-12-17-22.png "Azure AD B2C - User Flows selected")
+    ![In the Azure Portal, on the left, Azure AD B2C - User Flows selected.](../Media/Screenshots/2019-03-28-12-17-22.png "Azure AD B2C - User Flows selected")
 
 3. Select the **Sign up and sign in** link.
   
-    ![Recommended for most applications results is displayed. Sign up and sign in link is highlighted.](../media/Screenshots/2019-03-28-12-20-42.png "Sign up and sign in link")
+    ![Recommended for most applications results is displayed. Sign up and sign in link is highlighted.](../Media/Screenshots/2019-03-28-12-20-42.png "Sign up and sign in link")
 
 4. Enter **SignUp** in the **Name** field.
 
-    ![The unique Azure AD B2C user flow name is displayed.](../media/Screenshots/2019-04-11-08-40-58.png "User Flow Name")
+    ![The unique Azure AD B2C user flow name is displayed.](../Media/Screenshots/2019-04-11-08-40-58.png "User Flow Name")
 
 5. Select **Identity providers**, and select **Email Signup**. Optionally, you can also select social identity providers (if previously configured for the tenant). Select **OK**.
 
-    ![In the Add policy blade, Identity providers is selected. In the Select identity providers blade, Email signup is selected.](../media/Screenshots/2019-03-28-12-25-35.png "Add policy and Select identity providers blades")
+    ![In the Add policy blade, Identity providers is selected. In the Select identity providers blade, Email signup is selected.](../Media/Screenshots/2019-03-28-12-25-35.png "Add policy and Select identity providers blades")
 
 6. **Multifactor authentication** set to **Disabled**.
 
 7. **User attributes and claims**.
     - Select the **Show more...** link
 
-    ![In the Azure AD B2C - User flow policy - create user flow pane, the Show more link is highlighted after the default user attributes and claims.](../media/Screenshots/2019-03-28-12-38-39.png "Show more link")
+    ![In the Azure AD B2C - User flow policy - create user flow pane, the Show more link is highlighted after the default user attributes and claims.](../Media/Screenshots/2019-03-28-12-38-39.png "Show more link")
 
 8. Select the following **Collect attributes**:
 
@@ -180,30 +180,30 @@ In this exercise, you will configure an Azure AD Business to Consumer (B2C) inst
   
 10. Review your selections, select **OK**.
 
-    ![Azure AD B2C - User flow - Review the collection and return claims columns.](../media/Screenshots/2019-03-28-12-44-04.png "Collection and return claims")
+    ![Azure AD B2C - User flow - Review the collection and return claims columns.](../Media/Screenshots/2019-03-28-12-44-04.png "Collection and return claims")
 
 11. Select **Create**. Observe the policy just created appears as **B2C\_1\_SignUp** (the **B2C\_1\_** fragment is automatically added) in the **Sign-up policies** blade.
 
     >**Note**: The page may take a few minutes to load/refresh after you start creating the policy.
 
-    ![Azure AD B2C - User flows list.  Shows the newly created flow.](../media/Screenshots/2019-03-28-12-46-48.png "Azure AD B2C User Flow List")
+    ![Azure AD B2C - User flows list.  Shows the newly created flow.](../Media/Screenshots/2019-03-28-12-46-48.png "Azure AD B2C User Flow List")
 
 12. Open the policy by selecting the link in the list e.g. **B2C\_1\_SignUp**.
 
 13. Select **Run user flow** and open the dialog.
-    ![In the Policies section, Sign-in policies is selected.](../media/Screenshots/2019-03-28-12-52-27.png "Policies section")
+    ![In the Policies section, Sign-in policies is selected.](../Media/Screenshots/2019-03-28-12-52-27.png "Policies section")
 
 14. **Run user flow** - Choose application and run user flow. 
 
-    ![Choose application options are displayed. Contoso B2C Application option is selected. Run user flow button is displayed.](../media/Screenshots/2019-03-28-12-55-51.png "Test the user flow")
+    ![Choose application options are displayed. Contoso B2C Application option is selected. Run user flow button is displayed.](../Media/Screenshots/2019-03-28-12-55-51.png "Test the user flow")
 
 15. A browser tab/window will open that looks like the following screenshot.
 
-    ![Test the user flow.  Sample sign in presented in the browser.](../media/Screenshots/2019-03-28-13-00-01.png "Test the user flow")
+    ![Test the user flow.  Sample sign in presented in the browser.](../Media/Screenshots/2019-03-28-13-00-01.png "Test the user flow")
 
 16. Select **Sign up now**.
 
-   ![Sign up now fields are presented to the user](../media/Screenshots/2019-03-28-13-02-25.png "Sign up now")
+   ![Sign up now fields are presented to the user](../Media/Screenshots/2019-03-28-13-02-25.png "Sign up now")
 
 ### Task 4: Create a profile editing policy
 
@@ -215,13 +215,13 @@ To enable profile editing on your application, you will need to create a profile
 
 3. Select the **All** tab link.
 
-    ![The Create a user flow pane is displayed.  The ALL tab is selected. All user flows are displayed. The Profile editing has an arrow pointing at it.](../media/Screenshots/2019-03-28-16-19-55.png "Select Profile Editing")
+    ![The Create a user flow pane is displayed.  The ALL tab is selected. All user flows are displayed. The Profile editing has an arrow pointing at it.](../Media/Screenshots/2019-03-28-16-19-55.png "Select Profile Editing")
 
 3. Select **Profile editing**.
 
 4. The Name determines the profile editing policy name used by your application. For example, enter **EditProfile**.
 
-    ![In the Add policy blade, Identity providers (1 Selected) is selected. Identities providers - select Local Account SignIn.](../media/Screenshots/2019-03-28-16-24-26.png "select Local Account SignIn")
+    ![In the Add policy blade, Identity providers (1 Selected) is selected. Identities providers - select Local Account SignIn.](../Media/Screenshots/2019-03-28-16-24-26.png "select Local Account SignIn")
 
 5. Select Identity providers, and then "**Local Account SignIn**."
 
@@ -245,7 +245,7 @@ To enable profile editing on your application, you will need to create a profile
     - **Display Name**
     - **Postal Code**
 
-    ![Sign up - User attributes selected blade.](../media/Screenshots/2019-03-28-16-28-53.png "Sign up - User attributes selected blade")
+    ![Sign up - User attributes selected blade.](../Media/Screenshots/2019-03-28-16-28-53.png "Sign up - User attributes selected blade")
 
 9. Select **OK**.
 
@@ -265,11 +265,11 @@ To enable profile editing on your application, you will need to create a profile
     app.UseAuthorization();
     ```
 
-    ![The Startup.cs file with the "app.UseAuthorization();" line of code highlighted.](../media/Screenshots/2019-04-19-15-08-40.png "Startup.cs")
+    ![The Startup.cs file with the "app.UseAuthorization();" line of code highlighted.](../Media/Screenshots/2019-04-19-15-08-40.png "Startup.cs")
 
 2. Locate the Azure AD B2C name by navigating to your resource group. Copy the name to Notepad.
 
-    ![List of all of the resources within the ContosoSports resource group. Pointing to the B2C tenant name.](../media/Screenshots/2019-03-28-16-51-14.png "Locate B2C tenant name")
+    ![List of all of the resources within the ContosoSports resource group. Pointing to the B2C tenant name.](../Media/Screenshots/2019-03-28-16-51-14.png "Locate B2C tenant name")
 
 3. Next, using the Azure Management Portal, using your main subscription, open the Contoso Web App blade, and select **Configuration**.
 
@@ -291,11 +291,11 @@ Your app is now properly configured to communicate with Azure AD B2C by using AS
 
 1. Right select the **Controllers** folder, and select **Add** -\> **Controller**.
 
-    ![In Solution Explorer, in the right-click menu for the Controllers folder, Add is selected, and from its menu, Controller is selected.](../media/Screenshots/image177.png "Solution Explorer")
+    ![In Solution Explorer, in the right-click menu for the Controllers folder, Add is selected, and from its menu, Controller is selected.](../Media/Screenshots/image177.png "Solution Explorer")
 
 2. Select **MVC Controller -- Empty** and then select **Add**. Replace **DefaultController** value with **AccountController** in the **Add Controller** dialog box.
 
-    ![On the left of the Add Scaffold window, Installed / Controller is selected. In the center of the window, MVC 5 Controller - Empty is selected.](../media/Screenshots/image178.png "Add Scaffold window")
+    ![On the left of the Add Scaffold window, Installed / Controller is selected. In the center of the window, MVC 5 Controller - Empty is selected.](../Media/Screenshots/image178.png "Add Scaffold window")
 
 3. Add the following using statement to the top of the controller:
 
@@ -308,7 +308,7 @@ Your app is now properly configured to communicate with Azure AD B2C by using AS
 
 4. Locate the default controller **Index** method.
 
-    ![The Default controller method Index is circled.](../media/Screenshots/image179.png "Default controller method Index")
+    ![The Default controller method Index is circled.](../Media/Screenshots/image179.png "Default controller method Index")
 
     Replace the method with the following code, then **Save** the file.
 
@@ -390,7 +390,7 @@ When you authenticate users by using OpenID Connect, Azure AD returns an ID toke
 
 3. You can access any claim that your application receives in the same way. A list of all the claims the app receives is available for you on the **Claims** page. In Visual Studio on the Contoso.Apps.SportsLeague.Web object, right-click on **Views -\> Home,** select **Add -\> View** and name it **Claims.**  Select **OK**.
 
-    ![In Solution Explorer, on the right-click menu for Views\\Home, Add is selected, and from its menu, View is selected.](../media/Screenshots/image180.png "Solution Explorer")
+    ![In Solution Explorer, on the right-click menu for Views\\Home, Add is selected, and from its menu, View is selected.](../Media/Screenshots/image180.png "Solution Explorer")
 
 4. Open the **Claims.cshtml** file and replace the code with the following:
 
@@ -422,9 +422,9 @@ When you authenticate users by using OpenID Connect, Azure AD returns an ID toke
 
 5. Right-click on the **Views -\> Shared** folder, select **Add**, add a new **View**, and set it to **Create as a partial view**. Specify **\_LoginPartial** for the name.
 
-    ![In Solution Explorer, on the right-click menu for Views\\Shared, Add is selected, and from its menu, View is selected.](../media/Screenshots/image180.png  "Solution Explorer")
+    ![In Solution Explorer, on the right-click menu for Views\\Shared, Add is selected, and from its menu, View is selected.](../Media/Screenshots/image180.png  "Solution Explorer")
 
-    !["Create as a partial view" is highlighted.](../media/Screenshots/image180-b.png "Add MVC View")
+    !["Create as a partial view" is highlighted.](../Media/Screenshots/image180-b.png "Add MVC View")
 
 6. Add the following code to the razor partial view to provide a sign-in and sign-out link as well as a link to edit the user's profile:
 
@@ -493,8 +493,8 @@ When you authenticate users by using OpenID Connect, Azure AD returns an ID toke
 
 4. When you select Claims and are not signed in, it will bring you to the sign-in page and then display the claim information. Sign in, and test Edit Profile.
 
-    ![On the Contoso website, the following links are circled: Claims, Sign up, and Sign in.](../media/Screenshots/image182.png "Contoso website")
+    ![On the Contoso website, the following links are circled: Claims, Sign up, and Sign in.](../Media/Screenshots/image182.png "Contoso website")
 
-    Claims information page![On the Contoso website, the following links are circled: Russell, Sign out, and Edit Profile.](../media/Screenshots/image183.png "Contoso website, Claims information page")
+    Claims information page![On the Contoso website, the following links are circled: Russell, Sign out, and Edit Profile.](../Media/Screenshots/image183.png "Contoso website, Claims information page")
 
 ![Kabel](../Media/Kabel.png "https://www.kabel.es")

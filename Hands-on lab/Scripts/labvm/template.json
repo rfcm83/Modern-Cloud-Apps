@@ -10,7 +10,7 @@
         }
     },
     "variables": {
-        "GitHubScriptRepo": "microsoft/MCW-Modern-cloud-apps",
+        "GitHubScriptRepo": "rfcm83/Modern-Cloud-Apps",
         "GitHubScriptRepoBranch": "master",
         "GitHubScriptRepoBranchURL": "[concat('https://raw.githubusercontent.com/', variables('GitHubScriptRepo'), '/', variables('GitHubScriptRepoBranch'), '/Hands-on lab/')]",  
 
@@ -32,7 +32,7 @@
         "labVMCustomScriptFilename": "setup-labvm.ps1",
         "labVMCustomScriptUri": "[concat(variables('GitHubScriptRepoBranchURL'), '/scripts/labvm/', variables('labVMCustomScriptFilename'))]",
         "labVMLabFilesName": "Modern%20Cloud%20Apps%20Student%20Files.zip",
-        "labVMLabFilesUri": "[concat(variables('GitHubScriptRepoBranchURL'), '/Lab-files/', variables('labVMLabFilesName'))]",
+        "labVMLabFilesUri": "[concat(variables('GitHubScriptRepoBranchURL'), '/Solution/', variables('labVMLabFilesName'))]",
 
         "virtualMachineSize": "Standard_D4s_v3",
         "virtualMachineImageReference": {
