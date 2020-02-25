@@ -57,11 +57,7 @@ namespace Contoso.Apps.SportsLeague.Offers
             }
 
             app.UseHttpsRedirection();
-
-            app.UseCors();
-
-            app.UseAuthorization();
-
+                       
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
@@ -70,6 +66,9 @@ namespace Contoso.Apps.SportsLeague.Offers
             });
 
             app.UseRouting();
+            app.UseCors();
+
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
