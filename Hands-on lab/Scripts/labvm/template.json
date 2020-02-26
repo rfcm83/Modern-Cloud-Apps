@@ -30,7 +30,7 @@
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]",
 
         "labVMCustomScriptFilename": "setup-labvm.ps1",
-        "labVMCustomScriptUri": "[concat(variables('GitHubScriptRepoBranchURL'), '/scripts/labvm/', variables('labVMCustomScriptFilename'))]",
+        "labVMCustomScriptUri": "[concat(variables('GitHubScriptRepoBranchURL'), '/Scripts/labvm/', variables('labVMCustomScriptFilename'))]",
         "labVMLabFilesName": "Modern%20Cloud%20Apps%20Student%20Files.zip",
         "labVMLabFilesUri": "[concat(variables('GitHubScriptRepoBranchURL'), '/Solution/', variables('labVMLabFilesName'))]",
 
