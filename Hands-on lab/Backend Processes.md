@@ -228,7 +228,7 @@ The advantages of using Logic Apps include the following:
 
     ![In When there are messages in a queue, the Connection Name is ContosoStorage, and under Storage Account, contosostorage123321 is selected.](../Media/Screenshots/image243.png "When there are messages in a queue ")
 
-9. Select the **receiptgenerator** queue from the drop-down, select **New Step**, and **Add an Action**.
+9. Edit a custom value and type **receiptgenerator** queue, select **New Step**, and **Add an Action**.
 
     ![Under When there are messages in a queue, the Queue name is set to receiptgenerator. At the bottom, the New Step and Add an action buttons are selected.](../Media/Screenshots/image244.png "Queue name")
 
