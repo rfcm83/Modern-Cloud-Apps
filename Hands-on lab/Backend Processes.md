@@ -208,7 +208,7 @@ The advantages of using Logic Apps include the following:
 
     ![In the Azure Portal, logic is in the search field, and under that, Logic apps is selected.](../Media/Screenshots/image238.png "Azure Portal")
 
-4. select the **Logic App Designer** link.
+4. Select the **Logic App Designer** link.
 
     ![In the Logic app blade, under Development tools, Logic App Designer is selected.](../Media/Screenshots/image239.png "Logic app blade")
 
@@ -274,93 +274,77 @@ The advantages of using Logic Apps include the following:
 
     ![In Azure Storage Explorer, on the left, the following tree view is expanded: Storage Accounts\\contososportsstorage01r\\Blob Containers. Under Blob Containers, receipts is selected. On the right, the ContosoSportsLeague-Store-Receipt-72.pdf is selected.](../Media/Screenshots/image252.png "Azure Storage Explorer")
 
-18. Double-click it to see the Purchase receipt.
+19. Double-click it to see the Purchase receipt.
 
-19. Now, select the **Designer** button in the Logic Apps Designer screen. add two more steps to the flow for updating the database and removing the message from the queue after it has been processed. Switch back to the designer, select **+ New step**.
+20. Now, select the **Designer** button in the Logic Apps Designer screen. add two more steps to the flow for updating the database and removing the message from the queue after it has been processed. Switch back to the designer, select **+ New step**.
 
     ![In Designer, the New Step link is circled. Under New step, the Add an action tile is circled.](../Media/Screenshots/image254.png "Designer")
 
-20. Select **SQL Server**.
+21. Select **SQL Server**.
 
     ![In the Services section, under Services, SQL Server is selected.](../Media/Screenshots/image255.png "Services section")
 
-21. Select **SQL Server - Update row**.
+22. Select **SQL Server - Update row**.
 
     ![In the SQL Server section, on the Actions tab, SQL Server - Update row is selected.](../Media/Screenshots/image256.png "SQL Server section")
 
-22. Name the connection `ContosoSportsDB`, and select the primary ContosoSportsDB database for your solution. Under the user name and password used to create it, select **Create**.
+23. Name the connection `ContosoSportsDB`, and select the primary ContosoSportsDB database for your solution. Under the user name and password used to create it, select **Create**.
 
     ![The Update row section displays the previously defined settings.](../Media/Screenshots/image257.png "Update row")
 
-23. From the drop-down select the name of the table, **Orders**.
+24. Select the name of the table, **Orders**.
 
-    ![In the Update row section, under Table name, Orders is selected.](../Media/Screenshots/image258.png "Update row section")
+    ![In the Update row section, under Table name, Orders is selected.](../Media/Screenshots/image306.png "Update row section")
 
-24. Press **Save** and ignore the error. Select the **Code View** button.
+25. Add OrderId in **Row id** and Body:
 
-25. Replace these lines:
+```json
+"OrderDate": "@{body('ContosoMakePDF')['OrderDate']}",
+"FirstName": "@{body('ContosoMakePDF')['FirstName']}",
+"LastName": "@{body('ContosoMakePDF')['LastName']}",
+"Address": "@{body('ContosoMakePDF')['Address']}",
+"City": "@{body('ContosoMakePDF')['City']}",
+"State": "@{body('ContosoMakePDF')['State']}",
+"PostalCode": "@{body('ContosoMakePDF')['PostalCode']}",
+"Country": "@{body('ContosoMakePDF')['Country']}",
+"Phone": "@{body('ContosoMakePDF')['Phone']}",
+"SMSOptIn": "@{body('ContosoMakePDF')['SMSOptIn']}",
+"SMSStatus": "@{body('ContosoMakePDF')['SMSStatus']}",
+"Email": "@{body('ContosoMakePDF')['Email']}",
+"ReceiptUrl": "@{body('ContosoMakePDF')['ReceiptUrl']}",
+"Total": "@{body('ContosoMakePDF')['Total']}",
+"PaymentTransactionId": "@{body('ContosoMakePDF')['PaymentTransactionId']}",
+"HasBeenShipped": "@{body('ContosoMakePDF')['HasBeenShipped']}"
+```
 
-    ![Screenshot of code to be replaced.](../Media/Screenshots/image259.png "Code view")
+26. **Save** and return to the designer.
 
-    With these:
-
-    ```json
-    "OrderDate": "@{body('ContosoMakePDF')['OrderDate']}",
-    "FirstName": "@{body('ContosoMakePDF')['FirstName']}",
-    "LastName": "@{body('ContosoMakePDF')['LastName']}",
-    "Address": "@{body('ContosoMakePDF')['Address']}",
-    "City": "@{body('ContosoMakePDF')['City']}",
-    "State": "@{body('ContosoMakePDF')['State']}",
-    "PostalCode": "@{body('ContosoMakePDF')['PostalCode']}",
-    "Country": "@{body('ContosoMakePDF')['Country']}",
-    "Phone": "@{body('ContosoMakePDF')['Phone']}",
-    "SMSOptIn": "@{body('ContosoMakePDF')['SMSOptIn']}",
-    "SMSStatus": "@{body('ContosoMakePDF')['SMSStatus']}",
-    "Email": "@{body('ContosoMakePDF')['Email']}",
-    "ReceiptUrl": "@{body('ContosoMakePDF')['ReceiptUrl']}",
-    "Total": "@{body('ContosoMakePDF')['Total']}",
-    "PaymentTransactionId": "@{body('ContosoMakePDF')['PaymentTransactionId']}",
-    "HasBeenShipped": "@{body('ContosoMakePDF')['HasBeenShipped']}"
-    ```
-
-26. And modify the path variable to include the index key or OrderId to be as follows:
-
-    ```json
-    "path": "/datasets/default/tables/@{encodeURIComponent(encodeURIComponent('[dbo].[Orders]'))}/items/@{encodeURIComponent(encodeURIComponent(body('ContosoMakePDF')['OrderId']))}"
-    ```
-
-    The code should now look as follows for the update\_row method:
-
-    ![Screenshot of replacement code.](../Media/Screenshots/image260.png "Code")
-
-27. **Save** and return to the designer.
-
-28. Your updated designer view should look like this:
+27. Your updated designer view should look like this:
 
     ![The Update row section displays the purchase fields.](../Media/Screenshots/image261.png "Update row section")
 
-29. Finally, let us add one more step to remove the message from the queue. Press **+New Step**. Type in Queue in the search box, and select Azure Queues -- Delete message.
+28. Finally, let us add one more step to remove the message from the queue. Press **+New Step**. Type in Queue in the search box, and select Azure Queues -- Delete message.
 
     ![In the Choose an action section, queue is typed in the search field. Under Services, Azure Queues is selected. On the Actions tab, Azure Queues - Delete message is selected. ](../Media/Screenshots/image262.png "Choose an action section")
 
-30. Select the **receiptgenerator** queue from the list.
+29. Select the **receiptgenerator** queue from the list.
 
-31. Select **Message Id** **\>** **Pop Receipt** from the list, and select **Save**.
+30. Select **Message Id** **\>** **Pop Receipt** from the list, and select **Save**.
 
     ![In the Update row section, on the left in the Delete message fields, Message ID and Pop receipt are selected. On the right, under When there are messages in a queue, Message ID and Pop receipt are selected.](../Media/Screenshots/image263.png "Update row section")
 
-32. Select Run on the Logic App Designer, and then run the Contoso sports Web App and check out an Item.
+31. Select Run on the Logic App Designer, and then run the Contoso sports Web App and check out an Item.
 
-33. Run the call center website app, and select the last Details link in the list.
+32. Run the call center website app, and select the last Details link in the list.
     ![Screenshot of the Details link.](../Media/Screenshots/image264.png "Details link")
 
-34. You should now see a Download receipt link because the database has been updated.
+33. You should now see a Download receipt link because the database has been updated.
 
     ![In the Order Details window, the Download receipt link is circled.](../Media/Screenshots/image265.png "Order Details window")
 
-35. Select the Download receipt link to see the receipt.
+34. Select the Download receipt link to see the receipt.
 
-36. Return to the Logic app and you should see all green check marks for each step. If not, select the yellow status icon to find out details.
+35. Return to the Logic app and you should see all green check marks for each step. If not, select the yellow status icon to find out details.
 
     ![In the Logic app, all steps have green checkmarks.](../Media/Screenshots/image267.png "Logic app")
 
