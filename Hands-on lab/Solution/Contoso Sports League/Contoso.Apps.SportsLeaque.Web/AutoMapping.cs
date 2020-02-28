@@ -13,7 +13,7 @@ namespace Contoso.Apps.SportsLeaque.Web
             CreateMap<Product, ProductListModel>();
             CreateMap<Product, ProductModel>();
             CreateMap<Category, CategoryModel>();
-            CreateMap<Order, OrderModel>();
+            CreateMap<Order, OrderModel>().ReverseMap();
         }
     }
 

@@ -67,7 +67,8 @@ namespace Contoso.Apps.SportsLeague.Web.Controllers
                 CreditCardNumber = "4111111111111111",
                 ExpirationDate = "12/20",
                 CCV = "987",
-                SMSOptIn = true
+                SMSOptIn = true,
+                Phone = "123456789"
             };
 
             return View(vm);
