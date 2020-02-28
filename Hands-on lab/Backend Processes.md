@@ -292,75 +292,59 @@ The advantages of using Logic Apps include the following:
 
     ![The Update row section displays the previously defined settings.](../Media/Screenshots/image257.png "Update row")
 
-23. From the drop-down select the name of the table, **Orders**.
+23. Select the name of the table, **Orders**.
 
-    ![In the Update row section, under Table name, Orders is selected.](../Media/Screenshots/image258.png "Update row section")
+    ![In the Update row section, under Table name, Orders is selected.](../Media/Screenshots/image306.png "Update row section")
 
-24. Press **Save** and ignore the error. Select the **Code View** button.
+24. Add OrderId in **Row id** and Body:
 
-25. Replace these lines:
+```json
+"OrderDate": "@{body('ContosoMakePDF')['OrderDate']}",
+"FirstName": "@{body('ContosoMakePDF')['FirstName']}",
+"LastName": "@{body('ContosoMakePDF')['LastName']}",
+"Address": "@{body('ContosoMakePDF')['Address']}",
+"City": "@{body('ContosoMakePDF')['City']}",
+"State": "@{body('ContosoMakePDF')['State']}",
+"PostalCode": "@{body('ContosoMakePDF')['PostalCode']}",
+"Country": "@{body('ContosoMakePDF')['Country']}",
+"Phone": "@{body('ContosoMakePDF')['Phone']}",
+"SMSOptIn": "@{body('ContosoMakePDF')['SMSOptIn']}",
+"SMSStatus": "@{body('ContosoMakePDF')['SMSStatus']}",
+"Email": "@{body('ContosoMakePDF')['Email']}",
+"ReceiptUrl": "@{body('ContosoMakePDF')['ReceiptUrl']}",
+"Total": "@{body('ContosoMakePDF')['Total']}",
+"PaymentTransactionId": "@{body('ContosoMakePDF')['PaymentTransactionId']}",
+"HasBeenShipped": "@{body('ContosoMakePDF')['HasBeenShipped']}"
+```
 
-    ![Screenshot of code to be replaced.](../Media/Screenshots/image259.png "Code view")
+25. **Save** and return to the designer.
 
-    With these:
-
-    ```json
-    "OrderDate": "@{body('ContosoMakePDF')['OrderDate']}",
-    "FirstName": "@{body('ContosoMakePDF')['FirstName']}",
-    "LastName": "@{body('ContosoMakePDF')['LastName']}",
-    "Address": "@{body('ContosoMakePDF')['Address']}",
-    "City": "@{body('ContosoMakePDF')['City']}",
-    "State": "@{body('ContosoMakePDF')['State']}",
-    "PostalCode": "@{body('ContosoMakePDF')['PostalCode']}",
-    "Country": "@{body('ContosoMakePDF')['Country']}",
-    "Phone": "@{body('ContosoMakePDF')['Phone']}",
-    "SMSOptIn": "@{body('ContosoMakePDF')['SMSOptIn']}",
-    "SMSStatus": "@{body('ContosoMakePDF')['SMSStatus']}",
-    "Email": "@{body('ContosoMakePDF')['Email']}",
-    "ReceiptUrl": "@{body('ContosoMakePDF')['ReceiptUrl']}",
-    "Total": "@{body('ContosoMakePDF')['Total']}",
-    "PaymentTransactionId": "@{body('ContosoMakePDF')['PaymentTransactionId']}",
-    "HasBeenShipped": "@{body('ContosoMakePDF')['HasBeenShipped']}"
-    ```
-
-26. And modify the path variable to include the index key or OrderId to be as follows:
-
-    ```json
-    "path": "/datasets/default/tables/@{encodeURIComponent(encodeURIComponent('[dbo].[Orders]'))}/items/@{encodeURIComponent(encodeURIComponent(body('ContosoMakePDF')['OrderId']))}"
-    ```
-
-    The code should now look as follows for the update\_row method:
-
-    ![Screenshot of replacement code.](../Media/Screenshots/image260.png "Code")
-
-27. **Save** and return to the designer.
-
-28. Your updated designer view should look like this:
+26. Your updated designer view should look like this:
 
     ![The Update row section displays the purchase fields.](../Media/Screenshots/image261.png "Update row section")
 
-29. Finally, let us add one more step to remove the message from the queue. Press **+New Step**. Type in Queue in the search box, and select Azure Queues -- Delete message.
+27. Finally, let us add one more step to remove the message from the queue. Press **+New Step**. Type in Queue in the search box, and select Azure Queues -- Delete message.
 
     ![In the Choose an action section, queue is typed in the search field. Under Services, Azure Queues is selected. On the Actions tab, Azure Queues - Delete message is selected. ](../Media/Screenshots/image262.png "Choose an action section")
 
-30. Select the **receiptgenerator** queue from the list.
+28. Select the **receiptgenerator** queue from the list.
 
-31. Select **Message Id** **\>** **Pop Receipt** from the list, and select **Save**.
+29. Select **Message Id** **\>** **Pop Receipt** from the list, and select **Save**.
 
     ![In the Update row section, on the left in the Delete message fields, Message ID and Pop receipt are selected. On the right, under When there are messages in a queue, Message ID and Pop receipt are selected.](../Media/Screenshots/image263.png "Update row section")
 
-32. Select Run on the Logic App Designer, and then run the Contoso sports Web App and check out an Item.
+30. Select Run on the Logic App Designer, and then run the Contoso sports Web App and check out an Item.
 
-33. Run the call center website app, and select the last Details link in the list.
+31. Run the call center website app, and select the last Details link in the list.
     ![Screenshot of the Details link.](../Media/Screenshots/image264.png "Details link")
 
-34. You should now see a Download receipt link because the database has been updated.
+32. You should now see a Download receipt link because the database has been updated.
 
     ![In the Order Details window, the Download receipt link is circled.](../Media/Screenshots/image265.png "Order Details window")
 
-35. Select the Download receipt link to see the receipt.
+33. Select the Download receipt link to see the receipt.
 
-36. Return to the Logic app and you should see all green check marks for each step. If not, select the yellow status icon to find out details.
+34. Return to the Logic app and you should see all green check marks for each step. If not, select the yellow status icon to find out details.
 
     ![In the Logic app, all steps have green checkmarks.](../Media/Screenshots/image267.png "Logic app")
 
