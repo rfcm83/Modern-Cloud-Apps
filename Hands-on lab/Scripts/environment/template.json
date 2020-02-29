@@ -11,13 +11,12 @@
     },
     "variables": {
         "nameSuffix": "[uniqueString(resourceGroup().id)]",
-
         "webAppName": "[concat('contosoapp', variables('nameSuffix'))]",
-        "hostingPlanName": "ContosoSportsPlan",
-        "databaseName": "ContosoSportsDB",
-        "databaseServerName": "[concat('contososports', variables('nameSuffix'))]",
-        "appInsightsName": "[concat('contososportsai', variables('nameSuffix'))]",
-        "storageAccountName": "[concat('contoso', variables('nameSuffix'))]"
+        "hostingPlanName": "ContosoSportsKabelPlan",
+        "databaseName": "ContosoSportsKabelDB",
+        "databaseServerName": "[concat('contososportskabel', variables('nameSuffix'))]",
+        "appInsightsName": "[concat('contososportskabelai', variables('nameSuffix'))]",
+        "storageAccountName": "[concat('contososportskabel', variables('nameSuffix'))]"
     },
     "resources": [
         {
