@@ -17,7 +17,7 @@ namespace Contoso.Apps.SportsLeague.Admin.Controllers
 
         private readonly ProductContext _db;
 
-        [Authorize(AuthenticationSchemes = "EasyAuth")]
+        //[Authorize(AuthenticationSchemes = "EasyAuth")]
         public ActionResult Index()
         {
             //var orderId = 2;
