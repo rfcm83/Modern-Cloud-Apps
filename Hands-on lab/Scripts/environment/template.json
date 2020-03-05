@@ -16,7 +16,7 @@
         "databaseName": "ContosoSportsKabelDB",
         "databaseServerName": "[concat('contososportskabel', variables('nameSuffix'))]",
         "appInsightsName": "[concat('contososportskabelai', variables('nameSuffix'))]",
-        "storageAccountName": "[concat('contososportskabel', variables('nameSuffix'))]"
+        "storageAccountName": "[take(concat('contososportskabel', variables('nameSuffix')),24)]"
     },
     "resources": [
         {
