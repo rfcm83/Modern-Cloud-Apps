@@ -36,7 +36,7 @@ namespace Contoso.Apps.SportsLeague.Data.Logic
             // Retrieve the order record.
             if (_db.Orders.Any(o => o.OrderId == orderId))
             {
-                order = _db.Orders.Include(od => od.OrderDetails.Select(p => p.Product)).Single(o => o.OrderId == orderId);
+                order = _db.Orders.Include(x => x.OrderDetails).Include("OrderDetails.Product").Single(o => o.OrderId == orderId);
             }
            
             // Success.
